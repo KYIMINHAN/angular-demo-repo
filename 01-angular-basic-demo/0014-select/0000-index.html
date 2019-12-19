@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<title>Angular</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="../0000-index.html">Angular</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="#"><span
+						class="sr-only">(current)</span> </a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="jumbotron rounded-0" ng-app="myApp" ng-controller="myCtrl">
+
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<select class="form-control form-control-sm"
+								ng-model="selectedName" ng-options="x for x in names">
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md">
+							<p>This example shows how to fill a dropdown list using the
+								ng-options directive.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<select class="form-control form-control-sm">
+								<option ng-repeat="x in names">{{x}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md">
+							<p>This example shows how to fill a dropdown list using the
+								ng-options directive.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<p>Select a car:</p>
+							<select ng-model="selectedCar"
+								class="form-control form-control-sm">
+								<option ng-repeat="x in cars" value="{{x.model}}">{{x.model}}</option>
+							</select> <br>
+							<h6>You selected: {{selectedCar}}</h6>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md">
+							<p>When you use the ng-repeat directive to create dropdown
+								lists, the selected value must be a string.</p>
+							<p>In this example you will have to choose between the color
+								or the model to be your selected value.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<p>Select a car:</p>
+
+							<select ng-model="selectedCarOne" ng-options="x.model for x in cars"
+								class="form-control form-control-sm">
+							</select> <br>
+							<h6>You selected: {{selectedCarOne.model}}</h6>
+							<p>Its color is: {{selectedCarOne.color}}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md">
+							<p>When you use the ng-options directive to create dropdown
+								lists, the selected value can be an object.</p>
+							<p>In this example you can display both the model and the
+								color of the selected element.</p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope) {
+			$scope.names = [ "Emil", "Tobias", "Linus" ];
+			$scope.cars = [ {
+				model : "Ford Mustang",
+				color : "red"
+			}, {
+				model : "Fiat 500",
+				color : "white"
+			}, {
+				model : "Volvo XC90",
+				color : "black"
+			} ];
+		});
+	</script>
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</body>
+</html>
